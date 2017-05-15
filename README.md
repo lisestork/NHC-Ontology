@@ -9,7 +9,7 @@ Figure 1: Example occurrence record annotated with the DSW-NHC.
 ![alt text](https://github.com/lisestork/DSW-NHC/blob/master/example_occurrence3.png)
 
 Figure 2: Example of an annotation that connects to the DSW-NHC. 
-![alt text](https://github.com/lisestork/DSW-NHC/blob/master/exampleAnnotation.png)
+![alt text](https://github.com/lisestork/DSW-NHC/blob/master/AnnotationExample.png)
 
 
 
