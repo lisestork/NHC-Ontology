@@ -1,7 +1,6 @@
 # DSW-NHC
 
-The DSW-NHC (Darwin Core Semantic Web for Natural History Collections) an extension of the Darwin-SW ontology, is a semantic model that serves to structure the entities in natural history collections. It connects to digitized manuscript scans with the Web Annotation Data Model<sup>1</sup>.
-%Standards for describing present-day biodiversity data and general historical archive collections exist on the Semantic Web. We propose a model which combines and enriches these standards to enable the semantic annotation of natural history collections. 
+The DSW-NHC (Darwin Core Semantic Web for Natural History Collections) is an extension of the Darwin-SW ontology used to semantically describe present-day biodiversity data. The DSW-NHC is an application ontology that extends the Darwin-SW and serves to structure the entities in natural history collections through semantic annotation. It connects to digitized manuscript scans with the Web Annotation Data Model<sup>1</sup>.
 
 <sup>1</sup>The Web Annotation Model [Link](https://www.w3.org/TR/annotation-model/).
 
