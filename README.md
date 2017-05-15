@@ -1,6 +1,6 @@
 # DSW-NHC
 
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/lisestork/DSW-NHC/example_occurrence3.png)
 
 
 
