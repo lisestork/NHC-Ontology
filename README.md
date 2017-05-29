@@ -7,7 +7,7 @@ In the application ontology you can find the following ontologies: Natural Colle
 <sup>1</sup>The Web Annotation Model [Link](https://www.w3.org/TR/annotation-model/).
 
 Figure 1: The NHC-Ontology
-![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/occurrenceModel.png)
+![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/OccurrenceModel.png)
 
 Figure 2: Example occurrence record annotated with the NHC-Ontology. 
 ![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/example_occurrence.png)
