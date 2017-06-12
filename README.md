@@ -1,6 +1,6 @@
 # NHC-Ontology
 
-The NHC-Ontology (Natural History Collections Ontology) is an extension of the Darwin-SW ontology used to semantically describe present-day biodiversity data. The NHC-Ontology is an application ontology that extends the Darwin-SW and serves to structure the entities in natural history collections through semantic annotation. It connects to digitized manuscript scans with the Web Annotation Data Model<sup>1</sup>.
+The NHC-Ontology (Natural History Collections Ontology) is an application ontology that extends the Darwin-SW, an ontology to describe present-day biodiversity information, and serves to structure the entities in natural history collections through semantic annotation. It connects to digitized manuscript scans with the Web Annotation Data Model<sup>1</sup>.
 
 In the application ontology you can find the following ontologies: Natural Collection Description (NCD) from TDWG for describing collections, the Dublin Core for items, Darwin Core for describing Biodiversity, Darwin-SW and some classes taken from NCIT, Uberon and Geonames. See figure 1 for a graphical representation of the model. 
 
