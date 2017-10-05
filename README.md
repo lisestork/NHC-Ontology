@@ -12,7 +12,7 @@ Figure 1: The NHC-Ontology
 ![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/OccurrenceModel.png)
 
 Figure 2: Example queries (tested) to be used to query the SPARQL endpoint (http://localhost:8080/rdf4j-server/repositories/NC through the Virtuoso SPARQL query editor: https://dbpedia.org/sparql.
-![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/ExampleQueries.png)
+![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Example_Queries_SPARQLEndpoint.png)
 
 Figure 3: Example occurrence record annotated with the NHC-Ontology. 
 ![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/example_occurrence.png)
