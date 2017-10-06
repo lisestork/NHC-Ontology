@@ -1,0 +1,70 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
+PREFIX dsw: <http://purl.org/dsw/>
+PREFIX oa: <http://www.w3.org/ns/oa#>
+SELECT ?label ?page WHERE { 
+       ?identification dwciri:toTaxon ?taxon .
+       ?taxon rdfs:label ?label .
+       ?organism dsw:hasIdentification ?identification .
+       ?organism dsw:hasOccurrence ?occurrence .
+       ?occurrence dwciri:recordedBy 
+                   <http://viaf.org/viaf/45106482> .
+       ?occurrence dsw:hasEvidence ?observationRecord . 
+       ?anno oa:hasBody ?observationRecord . 
+       ?anno oa:hasTarget ?page
+       }
+       
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX nhc: <http://example.org/nhc/>
+PREFIX nc: <http://testingsense.liacs.nl/rdf/nc#>
+PREFIX dwc: <http://rs.tdwg.org/dwc/>
+PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
+PREFIX dsw: <http://purl.org/dsw/>
+PREFIX viaf: <http://viaf.org/viaf/>
+SELECT ?label WHERE {
+       ?taxon rdfs:label ?label .
+       ?taxon nhc:taxonRank nc:species .
+       ?taxon nhc:belongsToTaxon ?taxon2 .
+  	   ?taxon2 rdfs:label ?chiroptera
+       FILTER regex(?chiroptera, "Chiropterae") .
+       ?identification dwciri:toTaxon ?taxon .
+       ?organism dsw:hasIdentification 
+                                    ?identification . 
+       ?occurrence dsw:occurrenceOf ?organism . 
+       ?occurrence dwciri:recordedBy 
+                                    viaf:45106482 }
+
+PREFIX nhc: <http://example.org/nhc/>
+PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
+PREFIX dsw: <http://purl.org/dsw/>
+PREFIX oa: <http://www.w3.org/ns/oa#>
+SELECT ?page WHERE {  
+       ?event nhc:verbatimEventDate ?date .
+       ?date dwc:year ?year .
+       FILTER (?year >= 1820). 
+       FILTER (?year <= 1821) .
+       ?event dsw:eventOf ?occurrence .
+       ?occurrence dsw:hasEvidence ?observationRecord . 
+       ?anno oa:hasBody ?observationRecord . 
+       ?anno oa:hasTarget ?page 
+       }
+       
+PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
+PREFIX dsw: <http://purl.org/dsw/>
+PREFIX uberon: <http://purl.obolibrary.org/obo/>
+PREFIX ncit: <http://identifiers.org/ncit/>
+PREFIX nhc: <http://example.org/nhc/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT DISTINCT ?label2 
+WHERE { ?identification dwciri:toTaxon ?taxon .
+  		?taxon rdfs:label ?label 
+        FILTER regex(?label, "Pteropus") 
+        ?identification dsw:isBasedOn ?token . 
+        ?token dsw:hasDerivative ?measurement . 
+	    ?measurement nhc:measuresOrDescribes 
+	                        ?propertyorattribute .
+  		?propertyorattribute rdfs:label ?label2 .
+  		?propertyorattribute rdf:type ?ncitClass .
+		?ncitClass rdfs:subClassOf ncit:C20189 
+	}
