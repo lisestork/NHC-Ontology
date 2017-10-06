@@ -95,7 +95,7 @@ WHERE { ?identification dwciri:toTaxon ?taxon .
         ?identification dsw:isBasedOn ?token . 
         ?token dsw:hasDerivative ?measurement . 
 	    ?measurement nhc:measuresOrDescribes 
-	                        ?propertyorattribute .
+	                        ?anatomicalentity .
   		?anatomicalentity rdfs:label ?label2 .
   		?anatomicalentity rdf:type ?uberonClass .
 		?uberonClass rdfs:subClassOf uberon:UBERON_0001062
