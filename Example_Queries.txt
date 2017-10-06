@@ -65,7 +65,7 @@ PREFIX ncit: <http://identifiers.org/ncit/>
 PREFIX nhc: <http://example.org/nhc/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-SELECT DISTINCT ?label2 ncitClass
+SELECT DISTINCT ?label2 ?ncitClass
 WHERE { ?identification dwciri:toTaxon ?taxon .
   		?taxon rdfs:label ?label 
         FILTER regex(?label, "Pteropus") 
