@@ -65,7 +65,7 @@ PREFIX ncit: <http://identifiers.org/ncit/>
 PREFIX nhc: <http://example.org/nhc/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-SELECT DISTINCT ?label2 
+SELECT DISTINCT ?label2 ncitClass
 WHERE { ?identification dwciri:toTaxon ?taxon .
   		?taxon rdfs:label ?label 
         FILTER regex(?label, "Pteropus") 
@@ -76,4 +76,27 @@ WHERE { ?identification dwciri:toTaxon ?taxon .
   		?propertyorattribute rdfs:label ?label2 .
   		?propertyorattribute rdf:type ?ncitClass .
 		?ncitClass rdfs:subClassOf ncit:C20189 
+	}
+
+
+5. Provide me with a list of anatomical entities on which the classification of the genus 'Pteropus' was based in the field books: 
+
+PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
+PREFIX dsw: <http://purl.org/dsw/>
+PREFIX uberon: <http://purl.obolibrary.org/obo/>
+PREFIX ncit: <http://identifiers.org/ncit/>
+PREFIX nhc: <http://example.org/nhc/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT DISTINCT ?label2 ?uberonClass
+WHERE { ?identification dwciri:toTaxon ?taxon .
+  		?taxon rdfs:label ?label 
+        FILTER regex(?label, "Pteropus") 
+        ?identification dsw:isBasedOn ?token . 
+        ?token dsw:hasDerivative ?measurement . 
+	    ?measurement nhc:measuresOrDescribes 
+	                        ?propertyorattribute .
+  		?anatomicalentity rdfs:label ?label2 .
+  		?anatomicalentity rdf:type ?uberonClass .
+		?uberonClass rdfs:subClassOf uberon:UBERON_0001062
 	}
