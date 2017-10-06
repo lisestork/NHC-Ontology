@@ -20,7 +20,7 @@ SELECT ?label ?page WHERE {
        ?anno oa:hasTarget ?page
        }
 
-2. Show me a list of all species that belong to the order 'Chiroptera', that are recorded by Heinrich Kuhl (http://viaf.org/viaf/45106482):
+2. Show me a list of all species that belong to the genus 'Pteropus', that are recorded by Heinrich Kuhl (http://viaf.org/viaf/45106482):
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX nhc: <http://example.org/nhc/>
@@ -33,14 +33,14 @@ SELECT ?label WHERE {
        ?taxon rdfs:label ?label .
        ?taxon nhc:taxonRank nc:species .
        ?taxon nhc:belongsToTaxon ?taxon2 .
-  	   ?taxon2 rdfs:label ?chiroptera
-       FILTER regex(?chiroptera, "Chiropterae") .
+  	   ?taxon2 rdfs:label ?pteropus
+       FILTER regex(?pteropus, "Pteropus")  .
        ?identification dwciri:toTaxon ?taxon .
        ?organism dsw:hasIdentification 
                                     ?identification . 
        ?occurrence dsw:occurrenceOf ?organism . 
        ?occurrence dwciri:recordedBy 
-                                    viaf:45106482 }
+                                    viaf:45106482  }
 
 3. Show me all pages with descriptions of species occurrences that were recorded between 1820 and 1821:
 
