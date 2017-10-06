@@ -11,7 +11,7 @@ In this repository you can find the application ontology. The code of the Semant
 Figure 1: The NHC-Ontology
 ![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/OccurrenceModel.png)
 
-Figure 2: Example queries (tested) to be used to query the SPARQL endpoint (http://localhost:8080/rdf4j-server/repositories/NC through the Virtuoso SPARQL query editor: https://dbpedia.org/sparql.
+Figure 2: Example queries (tested) to be used to query the SPARQL endpoint (http://localhost:8080/rdf4j-server/repositories/NC through the Virtuoso SPARQL query editor: https://dbpedia.org/sparql. The queries can be found in the following document: https://github.com/lisestork/NHC-Ontology/blob/master/Example_Queries.txt. 
 ![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/Example_Queries_SPARQLEndpoint.png)
 
 Figure 3: Example occurrence record annotated with the NHC-Ontology. 
