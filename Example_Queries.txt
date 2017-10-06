@@ -5,9 +5,12 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
 PREFIX dsw: <http://purl.org/dsw/>
 PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX nhc: <http://example.org/nhc/>
+PREFIX nc: <http://testingsense.liacs.nl/rdf/nc#>
 SELECT ?label ?page WHERE { 
        ?identification dwciri:toTaxon ?taxon .
        ?taxon rdfs:label ?label .
+  	   ?taxon nhc:taxonRank nc:species . 
        ?organism dsw:hasIdentification ?identification .
        ?organism dsw:hasOccurrence ?occurrence .
        ?occurrence dwciri:recordedBy 
