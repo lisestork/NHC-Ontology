@@ -1,3 +1,6 @@
+
+1). Show me a list of all species recorded by Heinrich Kuhl (http://viaf.org/viaf/45106482), and the pages where they can be found:
+
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
 PREFIX dsw: <http://purl.org/dsw/>
@@ -13,7 +16,9 @@ SELECT ?label ?page WHERE {
        ?anno oa:hasBody ?observationRecord . 
        ?anno oa:hasTarget ?page
        }
-       
+
+2. Show me a list of all species that belong to the order 'Chiroptera', that are recorded by Heinrich Kuhl (http://viaf.org/viaf/45106482):
+
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX nhc: <http://example.org/nhc/>
 PREFIX nc: <http://testingsense.liacs.nl/rdf/nc#>
@@ -34,6 +39,8 @@ SELECT ?label WHERE {
        ?occurrence dwciri:recordedBy 
                                     viaf:45106482 }
 
+3. Show me all pages with descriptions of species occurrences that were recorded between 1820 and 1821:
+
 PREFIX nhc: <http://example.org/nhc/>
 PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
 PREFIX dsw: <http://purl.org/dsw/>
@@ -48,7 +55,9 @@ SELECT ?page WHERE {
        ?anno oa:hasBody ?observationRecord . 
        ?anno oa:hasTarget ?page 
        }
-       
+
+4. Provide me with a list of properties or attributes on which the classification of the genus 'Pteropus' was based in the field books: 
+
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
 PREFIX dsw: <http://purl.org/dsw/>
 PREFIX uberon: <http://purl.obolibrary.org/obo/>
