@@ -19,6 +19,28 @@ SELECT ?label ?page WHERE {
        ?anno oa:hasBody ?observationRecord . 
        ?anno oa:hasTarget ?page
        }
+      
+2). Show me a list of all recorded taxa by Heinrich Kuhl (http://viaf.org/viaf/4506482).
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX nhc: <http://example.org/nhc/>
+PREFIX nc: <http://testingsense.liacs.nl/rdf/nc#>
+PREFIX dwc: <http://rs.tdwg.org/dwc/>
+PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
+PREFIX dsw: <http://purl.org/dsw/>
+PREFIX viaf: <http://viaf.org/viaf/>
+PREFIX oa: <http://www.w3.org/ns/oa#> 
+SELECT DISTINCT ?label ?page WHERE {
+       ?taxon rdfs:label ?label .
+       ?identification dwciri:toTaxon ?taxon .
+       ?identification dsw:isBasedOn ?humanobservation .
+       ?annotation oa:hasBody ?humanobservation .
+       ?annotation oa:hasTarget ?page .
+       ?organism dsw:hasIdentification 
+                                    ?identification . 
+       ?occurrence dsw:occurrenceOf ?organism . 
+       ?occurrence dwciri:recordedBy 
+                                    viaf:45106482  }
 
 2. Show me a list of all species that belong to the genus 'Pteropus', that are recorded by Heinrich Kuhl (http://viaf.org/viaf/45106482):
 
