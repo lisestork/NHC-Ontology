@@ -125,3 +125,14 @@ WHERE { ?identification dwciri:toTaxon ?taxon .
   		?anatomicalentity rdf:type ?uberonClass .
 		?uberonClass rdfs:subClassOf uberon:UBERON_0001062
 	}
+
+6. Provide me with a list of all later added identifications
+
+PREFIX nhc: <http://example.org/nhc/>
+PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?label
+WHERE { ?organism nhc:additionalIdentification ?additional .
+  		?additional dwciri:toTaxon ?taxon .
+  		?taxon rdfs:label ?label
+	}
