@@ -25,4 +25,4 @@ Figure 4: Example of an annotation that connects to the NHC-Ontology.
 Finally, figure 5 shows an example of an annotated page. 
 
 Figure 4: Example of an annotated page. 
-![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/AnnotationExample.png)
+![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/AnnotatedImage.png)
