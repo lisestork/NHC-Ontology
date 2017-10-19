@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1494967029904" name="http://testingsense.liacs.nl/rdf/nhc-ontology/" uri="nhc-ontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1508402473621" name="http://darwin-sw.googlecode.com/svn/trunk/lib/dwc.owl" uri="onts/dwc.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1508402473621" name="http://purl.org/dsw/" uri="onts/dsw.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1508402473621" name="http://xmlns.com/foaf/0.1/" uri="onts/foaf.rdf"/>
     </group>
 </catalog>
