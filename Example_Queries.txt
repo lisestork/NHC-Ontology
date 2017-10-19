@@ -41,7 +41,7 @@ SELECT DISTINCT ?label ?page WHERE {
        ?occurrence dwciri:recordedBy viaf:45106482  
 }
 
-2. Show me a list of all species that belong to the genus 'Gymnonotus', that are recorded by Heinrich Kuhl (http://viaf.org/viaf/45106482):
+2. Show me a list of all species that belong to the order 'Chiropterae' (Bats), that are recorded by Heinrich Kuhl (http://viaf.org/viaf/45106482):
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX nhc: <http://example.org/nhc/>
@@ -53,9 +53,9 @@ PREFIX viaf: <http://viaf.org/viaf/>
 SELECT DISTINCT ?label WHERE {
        ?taxon rdfs:label ?label .
        ?taxon nhc:taxonRank nc:species .
-       ?taxon nhc:belongsToTaxon ?genus .
-       ?genus rdfs:label ?gymnonotus .
-       FILTER regex(?gymnonotus, "Gymnonotus")  .
+       ?taxon nhc:belongsToTaxon+ ?order .
+       ?order rdfs:label ?Chiropterae .
+       FILTER regex(?Chiropterae, "Chiropterae")  .
        ?identification dwciri:toTaxon ?taxon .
        ?identification dwciri:identifiedBy viaf:45106482 
 }
