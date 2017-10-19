@@ -22,3 +22,7 @@ Figure 3 shows one fully linked observation record that was produced in complian
 Figure 4: Example of an annotation that connects to the NHC-Ontology. 
 ![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/AnnotationExample.png)
 
+Finally, figure 5 shows an example of an annotated page. 
+
+Figure 4: Example of an annotated page. 
+![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/AnnotationExample.png)
