@@ -5,7 +5,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
 PREFIX dsw: <http://purl.org/dsw/>
 PREFIX oa: <http://www.w3.org/ns/oa#>
-PREFIX nhc: <http://example.org/nhc/>
+PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
 PREFIX nc: <http://makingsense.liacs.nl/rdf/nc#>
 PREFIX viaf: <http://viaf.org/viaf/>
 SELECT DISTINCT ?label ?page WHERE { 
@@ -23,7 +23,7 @@ SELECT DISTINCT ?label ?page WHERE {
 2). Show me a list of all recorded taxa by Heinrich Kuhl (http://viaf.org/viaf/4506482) and the pages where these can be found.
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX nhc: <http://example.org/nhc/>
+PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
 PREFIX nc: <http://testingsense.liacs.nl/rdf/nc#>
 PREFIX dwc: <http://rs.tdwg.org/dwc/>
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
@@ -44,7 +44,7 @@ SELECT DISTINCT ?label ?page WHERE {
 2. Show me a list of all species that belong to the order 'Chiropterae' (Bats), that are recorded by Heinrich Kuhl (http://viaf.org/viaf/45106482):
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX nhc: <http://example.org/nhc/>
+PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
 PREFIX nc: <http://makingsense.liacs.nl/rdf/nc#>
 PREFIX dwc: <http://rs.tdwg.org/dwc/>
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
@@ -62,7 +62,7 @@ SELECT DISTINCT ?label WHERE {
 
 3. Show me all pages with descriptions of species occurrences that were recorded between 1820 and 1821:
 
-PREFIX nhc: <http://example.org/nhc/>
+PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
 PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
 PREFIX dsw: <http://purl.org/dsw/>
 PREFIX oa: <http://www.w3.org/ns/oa#>
@@ -83,7 +83,7 @@ PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
 PREFIX dsw: <http://purl.org/dsw/>
 PREFIX uberon: <http://purl.obolibrary.org/obo/>
 PREFIX ncit: <http://identifiers.org/ncit/>
-PREFIX nhc: <http://example.org/nhc/>
+PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 SELECT DISTINCT ?label2 ?ncitClass
@@ -105,7 +105,7 @@ PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
 PREFIX dsw: <http://purl.org/dsw/>
 PREFIX uberon: <http://purl.obolibrary.org/obo/>
 PREFIX ncit: <http://identifiers.org/ncit/>
-PREFIX nhc: <http://example.org/nhc/>
+PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 SELECT DISTINCT ?label2 ?uberonClass
@@ -122,7 +122,7 @@ WHERE { ?identification dwciri:toTaxon ?taxon .
 
 6. Provide me with a list of all later added identifications
 
-PREFIX nhc: <http://example.org/nhc/>
+PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT DISTINCT ?label
@@ -135,7 +135,7 @@ WHERE { ?organism nhc:additionalIdentification ?additional .
 
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
 PREFIX dsw: <http://purl.org/dsw/>
-PREFIX nhc: <http://example.org/nhc/>
+PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -149,4 +149,110 @@ WHERE { ?taxon rdf:type dwc:Taxon .
   	?observation dsw:isBasisForId ?identification .
   	?annotation oa:hasBody ?observation .
   	?annotation oa:hasTarget ?page
+}
+
+8. Which Chiroptera species were collected by person X on java?
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
+PREFIX nc: <http://makingsense.liacs.nl/rdf/nc#>
+PREFIX dwc: <http://rs.tdwg.org/dwc/>
+PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
+PREFIX dsw: <http://purl.org/dsw/>
+PREFIX viaf: <http://viaf.org/viaf/>
+PREFIX oa: <http://www.w3.org/ns/oa#>
+SELECT DISTINCT ?label ?page WHERE {
+       ?taxon rdfs:label ?label .
+       ?taxon nhc:taxonRank nc:species .
+       ?taxon nhc:belongsToTaxon  ?order .
+       ?order rdfs:label ?Chiropterae .
+       FILTER regex(?Chiropterae, "Chiropterae") .
+       ?identification dwciri:toTaxon ?taxon .
+       ?organism dsw:hasIdentification ?identification . 
+       ?occurrence dsw:occurrenceOf ?organism . 
+       ?occurrence dwciri:recordedBy viaf:45106482 .
+       ?occurrence dsw:atEvent ?event . 
+       ?event dsw:locatedAt ?location . 
+       ?location dwciri:inDescribedPlace ?place .
+       ?place <http://www.geonames.org/ontology#parentFeature> ?parent .
+       ?parent <http://www.geonames.org/ontology#alternateName> ?name 
+       FILTER regex(str(?name), "Java", "i") 
+       ?anno oa:hasTarget ?roi .
+       ?roi oa:hasSource ?page . 
+       ?anno oa:hasBody ?taxon 
+}
+
+9: Where did person X collect and what did he find there? 
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
+PREFIX dsw: <http://purl.org/dsw/>
+PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
+PREFIX nc: <http://makingsense.liacs.nl/rdf/nc#>
+PREFIX viaf: <http://viaf.org/viaf/>
+SELECT DISTINCT ?specieslabel ?locationlabel ?page WHERE { 
+       ?identification dwciri:toTaxon ?taxon .
+       ?taxon rdfs:label ?specieslabel .
+       ?taxon nhc:taxonRank nc:species . 
+       ?organism dsw:hasIdentification ?identification .
+       ?organism dsw:hasOccurrence ?occurrence .
+       ?occurrence dwciri:recordedBy viaf:45106482 .
+       ?occurrence dsw:atEvent ?event .
+       ?event dsw:locatedAt ?location .
+       ?location rdfs:label ?locationlabel . 
+       ?anno oa:hasTarget ?roi .
+       ?roi oa:hasSource ?page . 
+       ?anno oa:hasBody ?taxon . 
+} 
+
+10: Show me all resources (lists, drawings and observations) concerning a specific species, e.g. “Pteropus”
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT DISTINCT ?page ?type WHERE {
+       ?anno oa:hasTarget ?roi .
+       ?roi oa:hasSource ?page . 
+       ?anno oa:hasBody ?textualbody . 
+       ?textualbody rdf:type oa:TextualTag .
+       ?textualbody rdfs:label ?label
+       FILTER regex(str(?label), "Pteropus", "i")
+       ?page rdf:type ?type
+}
+
+11: Are the species named directly in the field or do they receive a number or temporary name?
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
+SELECT DISTINCT ?page ?label WHERE {
+       ?anno oa:hasTarget ?roi .
+       ?roi oa:hasSource ?page . 
+       ?anno oa:hasBody ?body . 
+       ?body rdfs:label ?label .
+       ?body rdf:type dwc:Taxon
+}
+
+12: What did person X illustrate and describe?
+ 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
+PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
+PREFIX dsw: <http://purl.org/dsw/>
+PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
+SELECT DISTINCT ?page ?label ?person WHERE {
+       ?anno oa:hasTarget ?roi .
+       ?roi oa:hasSource ?page . 
+       ?anno oa:hasBody ?body . 
+       ?body rdfs:label ?label .
+       ?body rdf:type dwc:Taxon .
+       ?identification dwciri:toTaxon ?body .
+       ?organism dsw:hasIdentification ?identification . 
+       ?organism dsw:hasOccurrence ?occurrence .
+       ?occurrence dwciri:recordedBy ?person .
+       ?page rdf:type nhc:Page
 }
