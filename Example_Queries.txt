@@ -67,7 +67,7 @@ PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
 PREFIX dsw: <http://purl.org/dsw/>
 PREFIX oa: <http://www.w3.org/ns/oa#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT DISTINCT ?year ?page  WHERE {  
+SELECT DISTINCT ?label ?page  WHERE {  
        ?event nhc:verbatimEventDate ?date .
        ?date rdfs:label ?label .
        ?event dwc:year ?year .
@@ -163,6 +163,7 @@ PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
 PREFIX dsw: <http://purl.org/dsw/>
 PREFIX viaf: <http://viaf.org/viaf/>
 PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX gn: <http://www.geonames.org/ontology#>
 SELECT DISTINCT ?label ?page WHERE {
        ?taxon rdfs:label ?label .
        ?taxon nhc:taxonRank nc:species .
@@ -176,13 +177,14 @@ SELECT DISTINCT ?label ?page WHERE {
        ?occurrence dsw:atEvent ?event . 
        ?event dsw:locatedAt ?location . 
        ?location dwciri:inDescribedPlace ?place .
-       ?place <http://www.geonames.org/ontology#parentFeature> ?parent .
-       ?parent <http://www.geonames.org/ontology#alternateName> ?name 
+       ?place gn:parentFeature ?parent .
+       ?parent gn:alternateName ?name 
        FILTER regex(str(?name), "Java", "i") 
        ?anno oa:hasTarget ?roi .
        ?roi oa:hasSource ?page . 
        ?anno oa:hasBody ?taxon 
 }
+
 
 10: Where did person X collect and what did he find there? 
 
