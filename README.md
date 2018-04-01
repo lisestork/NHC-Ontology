@@ -12,7 +12,7 @@ Figure 1: The NHC-Ontology
 ![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/secondOccurrenceModel.png)
 
 Figure 2: Example queries (tested) to be used to query the SPARQL endpoint (http://makingsense.liacs.nl/rdf4j-server/repositories/NC) through a SPARQL query editor such as: http://yasgui.org/. Example queries can be found in the following document: https://github.com/lisestork/NHC-Ontology/blob/master/Example_Queries.txt !!
-![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/queries.png)
+![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/Queries.png)
 
 Figure 3: Example occurrence record annotated with the NHC-Ontology. 
 ![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/example_occurrence.png)
