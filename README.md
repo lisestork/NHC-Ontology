@@ -9,7 +9,7 @@ In this repository you can find the application ontology. The code of the Semant
 <sup>1</sup>The Web Annotation Model [Link](https://www.w3.org/TR/annotation-model/).
 
 Figure 1: The NHC-Ontology
-![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/OccurrenceModel.png)
+![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/secondOccurrenceModel.pdf)
 
 Figure 2: Example queries (tested) to be used to query the SPARQL endpoint (http://makingsense.liacs.nl/rdf4j-server/repositories/NC) through a SPARQL query editor such as: http://yasgui.org/. Example queries can be found in the following document: https://github.com/lisestork/NHC-Ontology/blob/master/Example_Queries.txt !!
 ![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/Example_Queries_SPARQLEndpoint.png)
