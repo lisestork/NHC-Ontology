@@ -15,7 +15,7 @@ Figure 2: Example queries (tested) to be used to query the SPARQL endpoint (http
 ![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/Queries.png)
 
 Figure 3: Example occurrence record annotated with the NHC-Ontology. 
-![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/example_occurrence.png)
+![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/RecordGraph.png)
 
 Figure 3 shows one fully linked observation record that was produced in compliance with three biology and history of science researchers. Orange nodes indicate IRIs and thus instances of classes from the ontology. Purple nodes also indicate IRIs but from different data providers. The IRI viaf:45106482 for instance refers to "Heinrich Kuhl", a german naturalist and zoologist and the writer of this field book. The IRI is an instance of the foaf:Person class. Further, purple nodes connect to the Uberon Ontology and the NCI Thesaurus and finally, green nodes indicate labels connected to the IRIs with the rdfs:label property. 
 
