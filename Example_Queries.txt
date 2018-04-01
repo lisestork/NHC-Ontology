@@ -1,5 +1,5 @@
 
-1). Show me a list of all species recorded by Heinrich Kuhl (http://viaf.org/viaf/45106482), and the pages where they can be found:
+1. Show me a list of all species recorded by Heinrich Kuhl (http://viaf.org/viaf/45106482), and the pages where they can be found:
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
@@ -20,7 +20,7 @@ SELECT DISTINCT ?label ?page WHERE {
        ?anno oa:hasTarget ?page
 }
       
-2). Show me a list of all recorded taxa by Heinrich Kuhl (http://viaf.org/viaf/4506482) and the pages where these can be found.
+2. Show me a list of all recorded taxa by Heinrich Kuhl (http://viaf.org/viaf/4506482) and the pages where these can be found.
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
@@ -41,7 +41,7 @@ SELECT DISTINCT ?label ?page WHERE {
        ?occurrence dwciri:recordedBy viaf:45106482  
 }
 
-2. Show me a list of all species that belong to the order 'Chiropterae' (Bats), that are recorded by Heinrich Kuhl (http://viaf.org/viaf/45106482):
+3. Show me a list of all species that belong to the order 'Chiropterae' (Bats), that are recorded by Heinrich Kuhl (http://viaf.org/viaf/45106482):
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
@@ -60,15 +60,17 @@ SELECT DISTINCT ?label WHERE {
        ?identification dwciri:identifiedBy viaf:45106482 
 }
 
-3. Show me all pages with descriptions of species occurrences that were recorded between 1820 and 1821:
+4. Show me all pages with descriptions of species occurrences that were recorded between 1820 and 1821:
 
 PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
 PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
 PREFIX dsw: <http://purl.org/dsw/>
 PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT DISTINCT ?year ?page  WHERE {  
        ?event nhc:verbatimEventDate ?date .
-       ?date dwc:year ?year .
+       ?date rdfs:label ?label .
+       ?event dwc:year ?year .
        FILTER (?year >= 1820). 
        FILTER (?year <= 1821) .
        ?event dsw:eventOf ?occurrence .
@@ -77,7 +79,7 @@ SELECT DISTINCT ?year ?page  WHERE {
        ?anno oa:hasTarget ?page 
 }
 
-4. Provide me with a list of properties or attributes on which the classification of the genus 'Pteropus' was based in the field books: 
+5. Provide me with a list of properties or attributes on which the classification of the genus 'Pteropus' was based in the field books: 
 
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
 PREFIX dsw: <http://purl.org/dsw/>
@@ -99,7 +101,7 @@ WHERE { ?identification dwciri:toTaxon ?taxon .
 }
 
 
-5. Provide me with a list of anatomical entities on which the classification of the genus 'Pteropus' was based in the field books: 
+6. Provide me with a list of anatomical entities on which the classification of the genus 'Pteropus' was based in the field books: 
 
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
 PREFIX dsw: <http://purl.org/dsw/>
@@ -120,7 +122,7 @@ WHERE { ?identification dwciri:toTaxon ?taxon .
 	?uberonClass rdfs:subClassOf uberon:UBERON_0001062
 }
 
-6. Provide me with a list of all later added identifications
+7. Provide me with a list of all later added identifications
 
 PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
@@ -131,7 +133,7 @@ WHERE { ?organism nhc:additionalIdentification ?additional .
   	?taxon rdfs:label ?label
 }
 	
-7. Provide me with a list of all taxonomical names that occur in the fieldbook, the naturalist who recorded them, the author who published/was going to publish the name and the page on which their occurrence is described.
+8. Provide me with a list of all taxonomical names that occur in the fieldbook, the naturalist who recorded them, the author who published/was going to publish the name and the page on which their occurrence is described.
 
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
 PREFIX dsw: <http://purl.org/dsw/>
@@ -151,7 +153,7 @@ WHERE { ?taxon rdf:type dwc:Taxon .
   	?annotation oa:hasTarget ?page
 }
 
-8. Which Chiroptera species were collected by person X on java?
+9. Which Chiroptera species were collected by person X on java?
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX nhc: <http://makingsense.liacs.nl/rdf/nhc/>
@@ -182,7 +184,7 @@ SELECT DISTINCT ?label ?page WHERE {
        ?anno oa:hasBody ?taxon 
 }
 
-9: Where did person X collect and what did he find there? 
+10: Where did person X collect and what did he find there? 
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dwciri: <http://rs.tdwg.org/dwc/iri/>
@@ -206,7 +208,7 @@ SELECT DISTINCT ?specieslabel ?locationlabel ?page WHERE {
        ?anno oa:hasBody ?taxon . 
 } 
 
-10: Show me all resources (lists, drawings and observations) concerning a specific species, e.g. “Pteropus”
+11: Show me all resources (lists, drawings and observations) concerning a specific species, e.g. “Pteropus”
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX oa: <http://www.w3.org/ns/oa#>
@@ -221,7 +223,7 @@ SELECT DISTINCT ?page ?type WHERE {
        ?page rdf:type ?type
 }
 
-11: Are the species named directly in the field or do they receive a number or temporary name?
+12: Are the species named directly in the field or do they receive a number or temporary name?
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX oa: <http://www.w3.org/ns/oa#>
@@ -235,7 +237,7 @@ SELECT DISTINCT ?page ?label WHERE {
        ?body rdf:type dwc:Taxon
 }
 
-12: What did person X illustrate and describe?
+13: What did person X illustrate and describe?
  
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX oa: <http://www.w3.org/ns/oa#>
