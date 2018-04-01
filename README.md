@@ -6,7 +6,7 @@ On a collection and item level, we use the following standards to describe natur
 
 In this repository you can find the application ontology. The code of the Semantic Field Book Annotator for crowd-sourcing semantic annotations from Field Books using this ontology can be found in the following GIT Repository: https://github.com/lisestork/SFB-Annotator. A README file is in progress. 
 
-<sup>1</sup>The Web Annotation Model [Link](https://www.w3.org/TR/annotation-model/).
+<sup>1</sup>[The Web Annotation Model](https://www.w3.org/TR/annotation-model/).
 
 Figure 1: The NHC-Ontology
 ![alt text](https://github.com/lisestork/NHC-Ontology/blob/master/Images/secondOccurrenceModel.png)
