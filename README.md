@@ -2,7 +2,7 @@
 
 The NHC-Ontology (Natural History Collection Ontology) is an application ontology that extends the Darwin-SW, an ontology to describe present-day biodiversity information, and serves to structure the entities in the content of natural history collections through semantic annotation. It connects to digitized manuscript scans with the Web Annotation Data Model<sup>1</sup>.
 
-On a collection and item level, we use the following standards to describe natural history collections: Natural Collection Description (NCD) from TDWG for describing collections and the Dublin Core for items. For the content, we integrate the Darwin Core and Darwin-SW for describing Biodiversity, and some classes taken from NCIT, Uberon and Geonames. See figure 1 for a graphical representation of the model. 
+On a collection and item level, we use the following standards to describe natural history collections: Natural Collection Description (NCD) from TDWG for describing collections and the Dublin Core for items. For the content, we integrate the Darwin Core and Darwin-SW for describing Biodiversity, and some classes taken from NCIT, Uberon and Geonames. See figure 1 for a graphical representation of the model that can be used for annotation of the content of field books. 
 
 In this repository you can find the application ontology. The code of the Semantic Field Book Annotator for crowd-sourcing semantic annotations from Field Books using this ontology can be found in the following GIT Repository: https://github.com/lisestork/SFB-Annotator. A README file is in progress. 
 
