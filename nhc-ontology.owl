@@ -99,9 +99,9 @@
     
 
 
-    <!-- http://makingsense.liacs.nl/rdf/nhc/MeasurementOrFact -->
+    <!-- http://rs.tdwg.org/dwc/terms/MeasurementOrFact -->
 
-    <owl:ObjectProperty rdf:about="http://makingsense.liacs.nl/rdf/nhc/MeasurementOrFact">
+    <owl:ObjectProperty rdf:about="http://rs.tdwg.org/dwc/terms/MeasurementOrFact">
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -110,7 +110,7 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="http://makingsense.liacs.nl/rdf/nhc/MeasurementOrFact"/>
+        <rdfs:range rdf:resource="http://rs.tdwg.org/dwc/terms/MeasurementOrFact"/>
     </owl:ObjectProperty>
     
 
@@ -192,7 +192,7 @@
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://makingsense.liacs.nl/rdf/nhc/MeasurementOrFact"/>
+                    <rdf:Description rdf:about="http://rs.tdwg.org/dwc/terms/MeasurementOrFact"/>
                     <rdf:Description rdf:about="http://purl.org/dsw/Specimen"/>
                     <rdf:Description rdf:about="http://rs.tdwg.org/dwc/terms/HumanObservation"/>
                 </owl:unionOf>
@@ -229,7 +229,7 @@
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://makingsense.liacs.nl/rdf/nhc/MeasurementOrFact"/>
+                    <rdf:Description rdf:about="http://rs.tdwg.org/dwc/terms/MeasurementOrFact"/>
                     <rdf:Description rdf:about="http://purl.org/dsw/Specimen"/>
                     <rdf:Description rdf:about="http://rs.tdwg.org/dwc/terms/HumanObservation"/>
                 </owl:unionOf>
@@ -366,7 +366,7 @@
     <!-- http://makingsense.liacs.nl/rdf/nhc/measuresOrDescribes -->
 
     <owl:ObjectProperty rdf:about="http://makingsense.liacs.nl/rdf/nhc/measuresOrDescribes">
-        <rdfs:domain rdf:resource="http://makingsense.liacs.nl/rdf/nhc/MeasurementOrFact"/>
+        <rdfs:domain rdf:resource="http://rs.tdwg.org/dwc/terms/MeasurementOrFact"/>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -737,9 +737,9 @@
     
 
 
-    <!-- http://makingsense.liacs.nl/rdf/nhc/MeasurementOrFact -->
+    <!-- http://rs.tdwg.org/dwc/terms/MeasurementOrFact -->
 
-    <owl:Class rdf:about="http://makingsense.liacs.nl/rdf/nhc/MeasurementOrFact"/>
+    <owl:Class rdf:about="http://rs.tdwg.org/dwc/terms/MeasurementOrFact"/>
     
 
 
@@ -1271,7 +1271,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description rdf:about="http://makingsense.liacs.nl/rdf/nhc/MeasurementOrFact">
+    <rdf:Description rdf:about="http://rs.tdwg.org/dwc/terms/MeasurementOrFact">
         <rdfs:comment>Same as dwc:MeasurementOrFact, but used to point to classes from the NCI thesaurus and the Uberon ontology for anatomy</rdfs:comment>
         <rdfs:label>Measurement Or Fact</rdfs:label>
         <rdfs:isDefinedBy rdf:resource="http://makingsense.liacs.nl/rdf/nhc/"/>
