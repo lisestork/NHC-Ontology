@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>NHC-Ontology</title>
+
+    <style>
+      table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+          font-size: 12px;
+      }
+      th, td {
+          padding: 15px;
+          text-align: left;
+      }
+      table#t01 {
+          width: 100%;    
+          background-color: #f1f1c1;
+      }
+   </style>
+  </head>
+  <body>
+    <div class="container" style="background-color: #ffffff">
+      <div class="jumbotron">
+        <h3 class="display-4">The NHC-Ontology</h3>
+        <p class="lead">Classes and properties of the NHC-Ontology for the semantic annotation of natural history collections</p>
+        <hr class="my-4">
+        <p>
+        The NHC-Ontology (Natural History Collection Ontology) is an application ontology that extends the <a href="https://github.com/darwin-sw/dsw">Darwin-Semantic Web (Darwin-SW) Ontology</a>, an ontology to describe present-day biodiversity information, and serves to structure the entities in the content of natural history collections through semantic annotation. It connects to digitized manuscript scans with the Web Annotation Data Model<p>
+        <p>On a collection and item level, we use the following standards to describe natural history collections: Natural Collection Description (NCD) from TDWG for describing collections and the Dublin Core for items. For the content, we integrate the Darwin Core and Darwin-SW for describing Biodiversity, and some classes taken from NCIT, Uberon and Geonames. See figure 1 for a graphical representation of the model that can be used for annotation of the content of field books.</p>
+        In this repository you can find the application ontology. The code of the Semantic Field Book Annotator for crowd-sourcing semantic annotations from Field Books using this ontology can be found in the following GIT Repository: <a href="https://github.com/lisestork/SFB-Annotator">https://github.com/lisestork/SFB-Annotator</a> 
+        </div>
+      <table cellspacing="0" class="border" style="border: 1px solid black">
+      <TR><TH colspan="2" style="border: 2px solid black"><A name="Date">Term Name: Date</A></TH></TR><TR><TD>Identifier:</TD><TD>http://makingsense.liacs.nl/rdf/nhc/Date</TD></TR>
+      <TR><TD>Type:</TD><TD>Class</TD></TR><TR><TD>Definition:</TD><TD> An identifier referring to a verbatim date in a field book. Once annotated, thte indentifier receives a label such as "Sept." or "18 March 1821".</TD></TR><TR><TD>Comment:</TD><TD> Examples: date1 rdf:type nhc:Date, date1 rdfs:label "18 March 1821".</TD></TR><TR><TD>Details:</TD><TD><a href="http://makingsense.liacs.nl/rdf/nhc/">nhc-ontology</a></TD>
+      <TR>
+      <TR><TH colspan="2" style="border: 2px solid black"><A name="TaxonRank">Term Name: TaxonRank </A></TH></TR> <TR><TD>Identifier:</TD><TD>http://makingsense.liacs.nl/rdf/nhc/TaxonRank</TD></TR> 
+      <TR><TD>Type:</TD><TD>Class</TD></TR><TR><TD>Definition:</TD><TD> The rank of a taxonomical name, specified as an IRI. </TD></TR><TR><TD>Comment:</TD><TD> Examples: species, family, order .... These can be defined in the namespace of the collection as use of taxonomical ranks can differ between historical collections.</TD></TR><TR><TD>Details:</TD><TD><a href="http://makingsense.liacs.nl/rdf/nhc/">nhc-ontology</a</TD>
+      <TR>
+      <TR><TH colspan="2" style="border: 2px solid black"><A name="taxonRank">Term Name: taxonRank </A></TH></TR> <TR><TD>Identifier:</TD><TD>http://makingsense.liacs.nl/rdf/nhc/taxonRank</TD></TR>
+      <TR><TD>Type:</TD><TD>Property</TD></TR><TR><TD>Domain:</TD><TD><a href="http://rs.tdwg.org/dwc/terms/Taxon">dwc:Taxon</a></TD></TR> <TR><TD>Definition:</TD><TD> A property specifying the link between an instance of the class dwc:Taxon and the an instance of the class nhc:TaxonRank.</TD></TR><TR><TD>Comment:</TD><TD> Examples: taxon1 nhc:taxonRank species </TD></TR><TR><TD>Details:</TD><TD><a href="http://makingsense.liacs.nl/rdf/nhc/">nhc-ontology</a></TD>
+      <TR>
+      <TR><TH colspan="2" style="border: 2px solid black"><A name="belongsToTaxon">Term Name: belongsToTaxon </A></TH></TR>   <TR><TD>Identifier:</TD><TD>http://makingsense.liacs.nl/rdf/nhc/taxonRank</TD></TR>
+      <TR><TD>Type:</TD><TD>Property</TD></TR><TR><TD>Domain:</TD><TD><a href="http://rs.tdwg.org/dwc/terms/Taxon">dwc:Taxon</a></TD></TR> <TR><TD>Definition:</TD><TD> A property specifying the link between an instance of the class dwc:Taxon and the an instance of the class nhc:TaxonRank.</TD></TR><TR><TD>Comment:</TD><TD> Examples: taxon1 nhc:taxonRank species </TD></TR><TR><TD>Details:</TD><TD><a href="http://makingsense.liacs.nl/rdf/nhc/">nhc-ontology</a></TD>
+      <TR>
+      <TR><TH colspan="2" style="border: 2px solid black"><A name="scientificNameAuthorship">Term Name: scientificNameAuthorship </A></TH></TR><TR><TD>Identifier:</TD><TD>http://makingsense.liacs.nl/rdf/nhc/scientificNameAuthorship</TD></TR><TR><TD>Type:</TD><TD>Property</TD></TR><TR><TD>Domain:</TD><TD><a href="http://rs.tdwg.org/dwc/terms/Taxon">dwc:Taxon</a></TD></TR> <TR><TD>Definition:</TD><TD> A property linking an instance of the class dwc:Taxon to the publisher of the taxonomical name, also an IRI and preferrably one specified in the VIAF international authority file.</TD></TR>  <TR><TD>Comment:</TD><TD> Examples: taxon1 nhc:scientificNameAuthorship <a href="https://viaf.org/viaf/45106482/">viaf:45106482</a> </TD></TR><TR><TD>Details:</TD><TD><a href="http://makingsense.liacs.nl/rdf/nhc/">nhc-ontology</a></TD>
+      <TR>
+      <TR><TH colspan="2" style="border: 2px solid black"><A name="additional">Term Name: additional </A></TH></TR><TR><TD>Identifier:</TD><TD>http://makingsense.liacs.nl/rdf/nhc/additional</TD></TR>
+      <TR><TD>Type:</TD><TD>Property</TD></TR><TR><TD>Domain:</TD><TD><a href="http://rs.tdwg.org/dwc/terms/Organism">dwc:Organism</a></TD></TR>
+      <TR><TD>Definition:</TD><TD> A property linking an instance of the class dwc:Organism to either an additional occurrence or an additional identification.</TD></TR> <TR><TD>Comment:</TD><TD> Examples: organism1 nhc:additional identification1 </TD></TR> <TR><TD>Details:</TD><TD><a href="http://makingsense.liacs.nl/rdf/nhc/">nhc-ontology</a></TD>
+      <TR>
+      <TR><TH colspan="2" style="border: 2px solid black"><A name="additionalOccurrence">Term Name: additional Occurrence </A></TH></TR>  <TR><TD>Identifier:</TD><TD>http://makingsense.liacs.nl/rdf/nhc/additionalOcccurrence</TD></TR>
+      <TR><TD>Type:</TD><TD>Property</TD></TR>
+      <TR><TD>subPropertyOf:</TD><TD> http://makingsense.liacs.nl/rdf/nhc/additional</TD></TR><TR><TD>Domain:</TD><TD><a href="http://rs.tdwg.org/dwc/terms/Organism">dwc:Organism</a></TD></TR>
+      <TR><TD>Range:</TD><TD><a href="http://rs.tdwg.org/dwc/terms/Occurrence">dwc:Occurrence</a></TD></TR><TR><TD>Definition:</TD><TD> A property linking an instance of the class dwc:Organism to an additional occurrence.</TD></TR>   <TR><TD>Comment:</TD><TD> Examples: organism1 nhc:additionalOccurrence occurrence1 </TD></TR><TR><TD>Details:</TD><TD><a href="http://makingsense.liacs.nl/rdf/nhc/">nhc-ontology</a></TD>
+      <TR>
+      <TR><TH colspan="2" style="border: 2px solid black"><A name="additionalIdentification">Term Name: additional Identification </A></TH></TR>  <TR><TD>Identifier:</TD><TD>http://makingsense.liacs.nl/rdf/nhc/additionalIdentification</TD></TR>
+      <TR><TD>Type:</TD><TD>Property</TD></TR>
+      <TR><TD>subPropertyOf:</TD><TD> http://makingsense.liacs.nl/rdf/nhc/additional</TD></TR><TR><TD>Domain:</TD><TD><a href="http://rs.tdwg.org/dwc/terms/Organism">dwc:Organism</a></TD></TR>
+      <TR><TD>Range:</TD><TD><a href="http://rs.tdwg.org/dwc/terms/Identification">dwc:Identification</a></TD></TR><TR><TD>Definition:</TD><TD> A property linking an instance of the class dwc:Organism to an additional occurrence.</TD></TR>   <TR><TD>Comment:</TD><TD> Examples: organism1 nhc:additionalOccurrence occurrence1 </TD></TR><TR><TD>Details:</TD><TD><a href="http://makingsense.liacs.nl/rdf/nhc/">nhc-ontology</a></TD>
+      <TR>
+      <TR><TH colspan="2" style="border: 2px solid black"><A name="verbatimEventDate">Term Name: verbatimEventDate
+      </A></TH></TR><TR><TD>Identifier:</TD><TD>http://makingsense.liacs.nl/rdf/nhc/verbatimEventDate</TD></TR>
+      <TR><TD>Type:</TD><TD>Property</TD></TR>
+      <TR><TD>Domain:</TD><TD><a href="http://rs.tdwg.org/dwc/terms/Event">dwc:Event</a></TD></TR>
+      <TR><TD>Range:</TD><TD><a href="http://makingsense.liacs.nl/rdf/nhc/Date">nhc:Date</a></TD></TR><TR><TD>Definition:</TD><TD> A predicate linking an instance of the class dwc:Event to an instance of the class nhc:Date.</TD></TR> <TR><TD>Comment:</TD><TD> Examples: event1 nhc:verbatimEventDate date1, date1 rdfs:label "march 1828" </TD></TR><TR><TD>Details:</TD><TD><a href="http://makingsense.liacs.nl/rdf/nhc/">nhc-ontology</a></TD><TR></table>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
